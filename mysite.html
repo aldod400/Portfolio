@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abdelrahman Elghonemy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@preline/preline@2.0.0/dist/preline.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                50: "#f0f9ff",
+                100: "#e0f2fe",
+                200: "#bae6fd",
+                300: "#7dd3fc",
+                400: "#38bdf8",
+                500: "#0ea5e9",
+                600: "#0284c7",
+                700: "#0369a1",
+                800: "#075985",
+                900: "#0c4a6e",
+              },
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+            animation: {
+              "fade-in": "fadeIn 0.5s ease-in-out",
+              "slide-up": "slideUp 0.5s ease-out",
+            },
+            keyframes: {
+              fadeIn: {
+                "0%": { opacity: "0" },
+                "100%": { opacity: "1" },
+              },
+              slideUp: {
+                "0%": { transform: "translateY(20px)", opacity: "0" },
+                "100%": { transform: "translateY(0)", opacity: "1" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+      body {
+        font-family: "Inter", sans-serif;
+        transition: background-color 0.3s ease;
+      }
+
+      .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+      }
+
+      .skill-badge:hover {
+        transform: scale(1.05);
+      }
+
+      .nav-link {
+        position: relative;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -2px;
+        left: 0;
+        background-color: currentColor;
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+    <!-- Navigation -->
+    <nav
+      class="fixed w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-800"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+          <div class="flex items-center">
+            <a
+              href="#"
+              class="text-xl font-bold text-primary-600 dark:text-primary-400"
+              >Abdelrahman Elghonemy</a
+            >
+          </div>
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#resume" class="nav-link">Resume</a>
+            <button
+              id="theme-toggle"
+              class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700"
+            >
+              <i class="fas fa-moon dark:hidden"></i>
+              <i class="fas fa-sun hidden dark:inline"></i>
+            </button>
+          </div>
+          <div class="md:hidden flex items-center">
+            <button
+              id="mobile-menu-button"
+              class="p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-700"
+            >
+              <i class="fas fa-bars"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile menu -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800"
+      >
+        <div class="px-2 pt-2 pb-3 space-y-1">
+          <a
+            href="#home"
+            class="block px-3 py-2 rounded-md text-base font-medium"
+            >Home</a
+          >
+          <a
+            href="#about"
+            class="block px-3 py-2 rounded-md text-base font-medium"
+            >About</a
+          >
+          <a
+            href="#projects"
+            class="block px-3 py-2 rounded-md text-base font-medium"
+            >Projects</a
+          >
+          <a
+            href="#skills"
+            class="block px-3 py-2 rounded-md text-base font-medium"
+            >Skills</a
+          >
+          <a
+            href="#resume"
+            class="block px-3 py-2 rounded-md text-base font-medium"
+            >Resume</a
+          >
+          <div class="px-3 py-2">
+            <button id="mobile-theme-toggle" class="flex items-center">
+              <i class="fas fa-moon dark:hidden mr-2"></i>
+              <i class="fas fa-sun hidden dark:inline mr-2"></i>
+              <span>Toggle Theme</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      id="home"
+      class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto"
+    >
+      <div
+        class="flex flex-col md:flex-row items-center justify-between gap-12"
+      >
+        <div class="md:w-1/2 animate-fade-in">
+          <h1 class="text-4xl md:text-5xl font-bold mb-4">
+            Hi, I'm
+            <span class="text-primary-600 dark:text-primary-400"
+              >Abdelrahman</span
+            >
+          </h1>
+          <h2 class="text-2xl md:text-3xl font-semibold mb-6">Web Developer</h2>
+          <p class="text-lg mb-8 text-gray-600 dark:text-gray-300">
+            I am a highly skilled web developer with over
+            <strong>3 years of experience</strong> in
+            <strong>PHP, MySQL</strong>. I have knowledge of popular frameworks
+            such as <strong>Laravel</strong>. I worked on several projects using
+            native <strong>PHP</strong> and <strong>MySQL, SQL Server</strong>.
+          </p>
+          <div class="flex space-x-4">
+            <a
+              href="#projects"
+              class="px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition duration-300"
+              >View My Work</a
+            >
+            <a
+              href="#resume"
+              class="px-6 py-3 border border-primary-600 text-primary-600 dark:text-primary-400 hover:bg-primary-50 dark:hover:bg-gray-800 rounded-lg transition duration-300"
+              >My Resume</a
+            >
+          </div>
+        </div>
+        <div class="md:w-1/2 animate-slide-up">
+          <div
+            class="relative w-full h-80 md:h-96 bg-gradient-to-br from-primary-100 to-primary-300 dark:from-primary-900 dark:to-primary-700 rounded-2xl overflow-hidden"
+          >
+            <div class="absolute inset-0 flex items-center justify-center">
+              <i
+                class="fas fa-user-tie text-8xl text-primary-600 dark:text-primary-300 opacity-20"
+              ></i>
+            </div>
+            <img
+              src="my photo.jpg"
+              alt="Profile"
+              class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-64 h-64 object-cover rounded-full border-4 border-white dark:border-gray-800 shadow-lg"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section
+      id="about"
+      class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-gray-50 dark:bg-gray-800 rounded-3xl my-12"
+    >
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold mb-4">About Me</h2>
+        <div class="w-20 h-1 bg-primary-600 dark:bg-primary-400 mx-auto"></div>
+      </div>
+      <div class="flex flex-col md:flex-row gap-12">
+        <div class="md:w-1/2">
+          <h3 class="text-2xl font-semibold mb-4">Who am I ?</h3>
+          <p class="mb-6 text-gray-600 dark:text-gray-300">
+            I am a highly skilled web developer with over
+            <strong>3 years of experience</strong> in <strong>PHP</strong> and
+            <strong>MySQL</strong>. I have knowledge of popular frameworks such
+            as <strong>Laravel</strong>. I have worked on several projects using
+            native <strong>PHP</strong> with <strong>MySQL</strong> and
+            <strong>SQL Server</strong>.
+          </p>
+          <p class="mb-6 text-gray-600 dark:text-gray-300">
+            My journey in web development started when I was in college, and
+            I've been hooked ever since. I love turning complex problems into
+            simple, beautiful, and intuitive designs. I also worked as a
+            freelancer for a period.
+          </p>
+        </div>
+        <div class="md:w-1/2">
+          <h3 class="text-2xl font-semibold mb-4">My Experience</h3>
+          <div class="space-y-6">
+            <div class="p-6 bg-white dark:bg-gray-700 rounded-xl shadow-sm">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h4 class="font-semibold text-lg">Backend Developer</h4>
+                  <p class="text-primary-600 dark:text-primary-400">
+                    Marketopia
+                  </p>
+                </div>
+                <span
+                  class="px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 text-sm rounded-full"
+                  >Oct 5, 2024 – Present</span
+                >
+              </div>
+              <p class="mt-2 text-gray-600 dark:text-gray-300">
+                Alexandria, Egypt
+              </p>
+              <ul
+                class="list-disc list-inside text-gray-600 dark:text-gray-300 mt-4 space-y-1"
+              >
+                <li>
+                  <strong>Backend Development:</strong> Building robust backend
+                  systems using PHP and Laravel, implementing RESTful APIs for
+                  mobile and web applications
+                </li>
+                <li>
+                  <strong>Database Management:</strong> Designing and optimizing
+                  MySQL databases, ensuring efficient data storage and retrieval
+                </li>
+                <li>
+                  <strong>API Integration:</strong> Creating and maintaining
+                  APIs for seamless communication between frontend and backend
+                  systems
+                </li>
+                <li>
+                  <strong>Security Implementation:</strong> Implementing secure
+                  authentication and authorization systems to protect user data
+                </li>
+                <li>
+                  <strong>Team Collaboration:</strong> Working closely with
+                  frontend developers and designers to ensure smooth integration
+                  and optimal performance
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold mb-4">My Projects</h2>
+        <div class="w-20 h-1 bg-primary-600 dark:bg-primary-400 mx-auto"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div
+          class="project-card p-6 bg-white dark:bg-gray-700 rounded-xl shadow-sm transition-transform duration-300 hover:-translate-y-3 hover:shadow-lg"
+        >
+          <h3 class="text-xl font-semibold mb-2">
+            4P App (Backend Development)
+          </h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
+            Developed the backend system using Laravel and PHP for both mobile
+            and web platforms. Implemented MySQL database architecture and
+            optimized queries for better performance. Created comprehensive
+            RESTful APIs to handle user authentication, service provider
+            integrations, deal and discount management, and news updates.
+            Available on
+            <a
+              href="https://play.google.com/store/apps/details?id=com.marketopia.fourP"
+              class="text-primary-600 dark:text-primary-400 hover:underline"
+              target="_blank"
+              >Google Play</a
+            >,
+            <a
+              href="https://apps.apple.com/eg/app/4p/id6743159334"
+              class="text-primary-600 dark:text-primary-400 hover:underline"
+              target="_blank"
+              >App Store</a
+            >, and
+            <a
+              href="https://4papp.com/"
+              class="text-primary-600 dark:text-primary-400 hover:underline"
+              target="_blank"
+              >Website</a
+            >.
+          </p>
+        </div>
+        <div
+          class="project-card p-6 bg-white dark:bg-gray-700 rounded-xl shadow-sm transition-transform duration-300 hover:-translate-y-3 hover:shadow-lg"
+        >
+          <h3 class="text-xl font-semibold mb-2">
+            PhantomScript-Language
+            <a
+              href="http://bit.ly/4cmWlWa"
+              target="_blank"
+              class="inline-block text-primary-600 dark:text-primary-400 hover:text-primary-800 ml-2"
+              ><i class="fab fa-github"></i
+            ></a>
+          </h3>
+          <p class="text-gray-600 dark:text-gray-300">
+            Developed a custom programming language using native PHP and OOP
+            principles. Implemented core language features including variables,
+            functions, and control structures. Created a lexer and parser to
+            process and execute PhantomScript code.
+          </p>
+        </div>
+        <div
+          class="project-card p-6 bg-white dark:bg-gray-700 rounded-xl shadow-sm transition-transform duration-300 hover:-translate-y-3 hover:shadow-lg"
+        >
+          <h3 class="text-xl font-semibold mb-2">
+            E-commerce Platform
+            <a
+              href="https://github.com/aldod400/E-commerce-Laravel"
+              target="_blank"
+              class="inline-block text-primary-600 dark:text-primary-400 hover:text-primary-800 ml-2"
+              ><i class="fab fa-github"></i
+            ></a>
+          </h3>
+          <p class="text-gray-600 dark:text-gray-300">
+            Developed a full-fledged e-commerce platform using the Laravel
+            framework. Worked on the admin panel providing product management,
+            account management, and admin privileges. Used OOP principles to
+            simplify code. Analyzed stakeholder requirements and designed ERD
+            based on analysis.
+          </p>
+        </div>
+        <div
+          class="project-card p-6 bg-white dark:bg-gray-700 rounded-xl shadow-sm transition-transform duration-300 hover:-translate-y-3 hover:shadow-lg"
+        >
+          <h3 class="text-xl font-semibold mb-2">
+            TeamsMaker (Graduation Project)
+            <a
+              href="http://bit.ly/3L0Vq1g"
+              target="_blank"
+              class="inline-block text-primary-600 dark:text-primary-400 hover:text-primary-800 ml-2"
+              ><i class="fab fa-github"></i
+            ></a>
+          </h3>
+          <p class="text-gray-600 dark:text-gray-300">
+            Developed a team management system using .NET API and Code First
+            approach. Implemented ERD design for efficient database structure.
+            Created responsive frontend using JavaScript, CSS, HTML, and
+            Bootstrap. Utilized LINQ for efficient data querying and
+            manipulation.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section
+      id="skills"
+      class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-gray-50 dark:bg-gray-800 rounded-3xl my-12"
+    >
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold mb-4">My Skills</h2>
+        <div class="w-20 h-1 bg-primary-600 dark:bg-primary-400 mx-auto"></div>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-4">
+        <span
+          class="skill-badge bg-primary-100 dark:bg-gray-700 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full"
+          >PHP</span
+        >
+        <span
+          class="skill-badge bg-primary-100 dark:bg-gray-700 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full"
+          >C++</span
+        >
+        <span
+          class="skill-badge bg-primary-100 dark:bg-gray-700 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full"
+          >Python</span
+        >
+        <span
+          class="skill-badge bg-primary-100 dark:bg-gray-700 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full"
+          >C#</span
+        >
+        <span
+          class="skill-badge bg-primary-100 dark:bg-gray-700 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full"
+          >SQL</span
+        >
+        <span
+          class="skill-badge bg-primary-100 dark:bg-gray-700 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full"
+          >HTML</span
+        >
+        <span
+          class="skill-badge bg-primary-100 dark:bg-gray-700 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full"
+          >CSS</span
+        >
+        <span
+          class="skill-badge bg-primary-100 dark:bg-gray-700 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full"
+          >JavaScript</span
+        >
+        <span
+          class="skill-badge bg-primary-100 dark:bg-gray-700 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full"
+          >Laravel</span
+        >
+        <span
+          class="skill-badge bg-primary-100 dark:bg-gray-700 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full"
+          >.NET</span
+        >
+        <span
+          class="skill-badge bg-primary-100 dark:bg-gray-700 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full"
+          >Django</span
+        >
+        <span
+          class="skill-badge bg-primary-100 dark:bg-gray-700 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full"
+          >Flask</span
+        >
+        <span
+          class="skill-badge bg-primary-100 dark:bg-gray-700 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full"
+          >jQuery</span
+        >
+        <span
+          class="skill-badge bg-primary-100 dark:bg-gray-700 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full"
+          >Bootstrap</span
+        >
+        <span
+          class="skill-badge bg-primary-100 dark:bg-gray-700 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full"
+          >phpMyAdmin</span
+        >
+        <span
+          class="skill-badge bg-primary-100 dark:bg-gray-700 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full"
+          >MySQL</span
+        >
+        <span
+          class="skill-badge bg-primary-100 dark:bg-gray-700 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full"
+          >PostgreSQL</span
+        >
+        <span
+          class="skill-badge bg-primary-100 dark:bg-gray-700 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full"
+          >SQL Server</span
+        >
+        <span
+          class="skill-badge bg-primary-100 dark:bg-gray-700 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full"
+          >OOP</span
+        >
+        <span
+          class="skill-badge bg-primary-100 dark:bg-gray-700 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full"
+          >Data Structures</span
+        >
+        <span
+          class="skill-badge bg-primary-100 dark:bg-gray-700 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full"
+          >Algorithms</span
+        >
+        <span
+          class="skill-badge bg-primary-100 dark:bg-gray-700 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full"
+          >Design Patterns</span
+        >
+        <span
+          class="skill-badge bg-primary-100 dark:bg-gray-700 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full"
+          >MVC</span
+        >
+        <span
+          class="skill-badge bg-primary-100 dark:bg-gray-700 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full"
+          >RESTful API</span
+        >
+        <span
+          class="skill-badge bg-primary-100 dark:bg-gray-700 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full"
+          >SQL Injection</span
+        >
+        <span
+          class="skill-badge bg-primary-100 dark:bg-gray-700 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full"
+          >Git</span
+        >
+        <span
+          class="skill-badge bg-primary-100 dark:bg-gray-700 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full"
+          >GitHub</span
+        >
+        <span
+          class="skill-badge bg-primary-100 dark:bg-gray-700 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full"
+          >Xdebug</span
+        >
+        <span
+          class="skill-badge bg-primary-100 dark:bg-gray-700 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full"
+          >Composer</span
+        >
+        <span
+          class="skill-badge bg-primary-100 dark:bg-gray-700 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full"
+          >pip</span
+        >
+        <span
+          class="skill-badge bg-primary-100 dark:bg-gray-700 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full"
+          >Visual Studio</span
+        >
+        <span
+          class="skill-badge bg-primary-100 dark:bg-gray-700 text-primary-800 dark:text-primary-200 px-3 py-1 rounded-full"
+          >VS Code</span
+        >
+      </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section
+      id="resume"
+      class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-gray-50 dark:bg-gray-800 rounded-3xl my-12"
+    >
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold mb-4">Resume</h2>
+        <div class="w-20 h-1 bg-primary-600 dark:bg-primary-400 mx-auto"></div>
+      </div>
+      <div class="text-center">
+        <a
+          href="Abdelrahman Elghonemy.pdf"
+          download
+          class="px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition duration-300"
+          >Download CV</a
+        >
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-4 sm:px-6 lg:px-8 bg-gray-100 dark:bg-gray-800">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-6 md:mb-0">
+            <a
+              href="#"
+              class="text-xl font-bold text-primary-600 dark:text-primary-400"
+              >Abdelrahman Elghonemy</a
+            >
+            <p class="mt-2 text-gray-600 dark:text-gray-300">
+              © 2024 Elghonemy. All rights reserved.
+            </p>
+          </div>
+          <div class="flex space-x-6">
+            <a
+              href="https://github.com/aldod400"
+              class="text-gray-600 hover:text-primary-600 dark:text-gray-300 dark:hover:text-primary-400"
+            >
+              <i class="fab fa-github text-2xl"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/abdelrahman-elghonemy-074867242/"
+              class="text-gray-600 hover:text-primary-600 dark:text-gray-300 dark:hover:text-primary-400"
+            >
+              <i class="fab fa-linkedin text-2xl"></i>
+            </a>
+            <a
+              href="tel:+201114773472"
+              class="text-gray-600 hover:text-primary-600 dark:text-gray-300 dark:hover:text-primary-400"
+            >
+              <i class="fas fa-phone text-2xl"></i>
+            </a>
+            <a
+              href="mailto:aldodelghonemy400@gmail.com"
+              class="text-gray-600 hover:text-primary-600 dark:text-gray-300 dark:hover:text-primary-400"
+            >
+              <i class="fas fa-envelope text-2xl"></i>
+            </a>
+            <div class="flex items-center text-gray-600 dark:text-gray-300">
+              <i class="fas fa-map-marker-alt text-2xl mr-2"></i>
+              <span>Alexandria, Egypt</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Theme toggle functionality
+      const themeToggle = document.getElementById("theme-toggle");
+      const mobileThemeToggle = document.getElementById("mobile-theme-toggle");
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      // Check for saved theme preference or use system preference
+      if (
+        localStorage.getItem("color-theme") === "dark" ||
+        (!localStorage.getItem("color-theme") &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+
+      // Toggle theme
+      function toggleTheme() {
+        if (document.documentElement.classList.contains("dark")) {
+          document.documentElement.classList.remove("dark");
+          localStorage.setItem("color-theme", "light");
+        } else {
+          document.documentElement.classList.add("dark");
+          localStorage.setItem("color-theme", "dark");
+        }
+      }
+      // Attach event listeners
+      themeToggle.addEventListener("click", toggleTheme);
+      mobileThemeToggle.addEventListener("click", toggleTheme);
+      mobileMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+    </script>
+  </body>
+</html>
